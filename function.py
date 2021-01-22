@@ -49,5 +49,4 @@ def loop(ser, fig, line1, data_y1):
         data_y1[0][count] = int(data)
         line1.set_ydata(data_y1)
         fig.canvas.draw()
-        plt.pause(1)
         count += 1
