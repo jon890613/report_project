@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+	<title>專題報告</title>
+	<style type="text/css">
+	.head{
+		background-color:#003344;color:white;font-weight:bold;font-size:70px;
+		text-align:center;padding:10px;
+	}
+	table{
+	width:1000px;
+	border-collapse:collapse;
+	}
+	td{
+		border-bottom:2px solid #888888;padding:30px;font-size:20px;font-weight:bold;
+	}
+	tr:nth-child(1){
+		background-color:#7788aa;color:#ffffff;
+	}
+	tr:nth-child(even){
+		background-color:#fffff0;
+	}
+	</style>
+</head>
+<body style="margin:0px;background-color:#f8f8ff;">
+	<div class="head">網頁展示</div>
+	<h1>表格:</h1>
+	<table align="center">
+		<tr>
+			<td>感測器</td>
+			<td>數值</td>
+			<td>時間</td>
+		</tr>
+		<tr>
+			<td>水壓計</td>
+			<td>10</td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td>水流計</td>
+			<td>9</td>
+			<td>9</td>
+		</tr>
+	</table>
+	<hr/>
+	<h1>圖表1:</h1>
+		<img src="data:image/png;base64, {{ plot_first_flow}}" ></img>
+	<h1>圖表2:</h1>
+		<img src="data:image/png;base64, {{ plot_second_flow}}" ></img>
+	<h1>圖表3:</h1>
+		<img src="data:image/png;base64, {{ plot_third_flow}}" ></img>
+	<h1>圖表4:</h1>
+		<img src="data:image/png;base64, {{ plot_four_flow}}" ></img>
+	<h1>圖表5:</h1>
+		<img src="data:image/png;base64, {{ plot_url_pie}}" ></img>
+
+	<hr/>
+</body>
+</html>

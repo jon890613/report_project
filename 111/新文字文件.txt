@@ -1,0 +1,48 @@
+ first = funtion.Database(datalist="firstfloor")
+    first_data = first.get_sql_data()
+    first_time, first_flow, first_pressure = first.conversion_data(first_data)
+    first_img_index = first.get_img_index(first_time, first_flow)
+
+    second = funtion.Database(datalist="secondfloor")
+    second_data = second.get_sql_data()
+    second_time, second_flow, second_pressure = second.conversion_data(second_data)
+    second_img_index = second.get_img_index(second_time, second_flow)
+
+    third = funtion.Database(datalist="thirdfloor")
+    third_data = third.get_sql_data()
+    third_time, third_flow, third_pressure = third.conversion_data(third_data)
+    third_img_index = third.get_img_index(third_time, third_flow)
+
+    four = funtion.Database(datalist="fourthfloor")
+    four_data = four.get_sql_data()
+    four_time, four_flow, four_pressure = four.conversion_data(four_data)
+    four_img_index = four.get_img_index(four_time, four_flow)
+
+--------------------------------------------------------------------------------------------------
+    second = sql.get_sql_data("secondfloor")
+    second_web = sql.web_data(second)
+
+    third = sql.get_sql_data("thirdfloor")
+    third_web = sql.web_data(third)
+
+    four = sql.get_sql_data("fourfloor")
+    four_web = sql.web_data(four)
+
+
+plot_second_flow=second_web,
+                           plot_third_flow=third_web,
+                           plot_four_flow=four_web,
+
+------------------------------------------------------------------------------------------------------
+img_index = io.BytesIO()
+        plt.plot(time_re, pressure,  color='blue')
+        plt.xticks(rotation=25)
+        plt.ylim((0, 300))
+        plt.xlim((0, 20))
+        plt.savefig(img_index, format='png')
+        plt.grid(True)  # 顯示虛線
+
+        img_index.seek(0)
+        plot_url_index = base64.b64encode(img_index.getvalue()).decode()
+        plt.close()
+        return plot_url_index
